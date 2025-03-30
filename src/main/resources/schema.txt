@@ -1,0 +1,110 @@
+CREATE SEQUENCE catalogue_id_seq AS BIGINT;
+CREATE SEQUENCE user_id_seq AS BIGINT;
+CREATE SEQUENCE usercompany_id_seq AS BIGINT;
+CREATE SEQUENCE company_id_seq AS BIGINT;
+CREATE SEQUENCE companyplatform_id_seq AS BIGINT;
+CREATE SEQUENCE platformauthcompany_id_seq AS BIGINT;
+CREATE SEQUENCE platform_id_seq AS BIGINT;
+CREATE SEQUENCE platformendpoint_id_seq AS BIGINT;
+CREATE SEQUENCE endpoint_id_seq AS BIGINT;
+CREATE SEQUENCE log_id_seq AS BIGINT;
+CREATE SEQUENCE log_historial_id_seq AS BIGINT;
+
+CREATE TABLE Catalogue (
+    id BIGINT PRIMARY KEY DEFAULT NEXT VALUE FOR catalogue_id_seq,
+    codigo VARCHAR(255),
+    value VARCHAR(255),
+    description VARCHAR(255)
+);
+
+CREATE TABLE User (
+    id BIGINT PRIMARY KEY DEFAULT NEXT VALUE FOR user_id_seq,
+    username VARCHAR(255) NOT NULL,
+    email VARCHAR(255) UNIQUE NOT NULL,
+    mame VARCHAR(255),
+    lastname VARCHAR(255),
+    status BOOLEAN NOT NULL
+);
+
+CREATE TABLE Company (
+    id BIGINT PRIMARY KEY DEFAULT NEXT VALUE FOR company_id_seq,
+    name VARCHAR(255) NOT NULL,
+    description VARCHAR(255),
+    status BOOLEAN NOT NULL
+);
+
+CREATE TABLE UserCompany (
+    id BIGINT PRIMARY KEY DEFAULT NEXT VALUE FOR usercompany_id_seq,
+    user_id BIGINT NOT NULL,
+    company_id BIGINT NOT NULL,
+    status BOOLEAN NOT NULL,
+    FOREIGN KEY (user_id) REFERENCES User(id),
+    FOREIGN KEY (company_id) REFERENCES Company(id)
+);
+
+CREATE TABLE Platform (
+    id BIGINT PRIMARY KEY DEFAULT NEXT VALUE FOR platform_id_seq,
+    name VARCHAR(255) NOT NULL,
+    description VARCHAR(255),
+    status BOOLEAN NOT NULL
+);
+
+CREATE TABLE Endpoint (
+    id BIGINT PRIMARY KEY DEFAULT NEXT VALUE FOR endpoint_id_seq,
+    name VARCHAR(255) NOT NULL,
+    description VARCHAR(255),
+    path VARCHAR(255) NOT NULL,
+    type VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE PlatformEndpoint (
+    id BIGINT PRIMARY KEY DEFAULT NEXT VALUE FOR platformendpoint_id_seq,
+    endpoint_id BIGINT NOT NULL,
+    platform_id BIGINT NOT NULL,
+    method_id BIGINT NOT NULL,
+    sucess_code_id BIGINT NOT NULL,
+    FOREIGN KEY (endpoint_id) REFERENCES Endpoint(id),
+    FOREIGN KEY (platform_id) REFERENCES Platform(id)
+);
+
+CREATE TABLE CompanyPlatform (
+    id BIGINT PRIMARY KEY DEFAULT NEXT VALUE FOR companyplatform_id_seq,
+    empresa_id BIGINT NOT NULL,
+    platform_id BIGINT NOT NULL,
+    http_address VARCHAR(255),
+    FOREIGN KEY (empresa_id) REFERENCES Company(id),
+    FOREIGN KEY (platform_id) REFERENCES Platform(id)
+);
+
+CREATE TABLE PlatformAuthCompany (
+    id BIGINT PRIMARY KEY DEFAULT NEXT VALUE FOR platformauthcompany_id_seq,
+    platform_id BIGINT NOT NULL,
+    company_id BIGINT NOT NULL,
+    type VARCHAR(255),
+    name VARCHAR(255),
+    status BOOLEAN NOT NULL,
+    FOREIGN KEY (platform_id) REFERENCES Platform(id),
+    FOREIGN KEY (company_id) REFERENCES Company(id)
+);
+
+CREATE TABLE Log (
+    id BIGINT PRIMARY KEY DEFAULT NEXT VALUE FOR log_id_seq,
+    date DATE NOT NULL,
+    time TIME NOT NULL,
+    description VARCHAR(255),
+    user_company_id BIGINT NOT NULL,
+    company_platform_id BIGINT NOT NULL,
+    status BOOLEAN NOT NULL,
+    FOREIGN KEY (user_company_id) REFERENCES UserCompany(id),
+    FOREIGN KEY (company_platform_id) REFERENCES CompanyPlatform(id)
+);
+
+
+CREATE TABLE LoghHistorial (
+    id BIGINT PRIMARY KEY DEFAULT NEXT VALUE FOR log_historial_id_seq,
+    date DATE NOT NULL,
+    description VARCHAR(255),
+    log_id BIGINT NOT NULL,
+    status BOOLEAN NOT NULL,
+    FOREIGN KEY (log_id) REFERENCES Log(id)
+);

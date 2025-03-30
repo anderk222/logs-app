@@ -1,0 +1,20 @@
+spring:
+  application:
+    name: logs-app
+
+  datasource:
+    url: jdbc:hsqldb:file:./data/mydb;shutdown=true
+    driverClassName: org.hsqldb.jdbc.JDBCDriver
+    username: admin
+    password: 123
+
+  jpa:
+    database-platform: org.hibernate.dialect.HSQLDialect
+    hibernate:
+      ddl-auto: create
+    show-sql: true
+  # security:
+  #   oauth2:
+  #     resourceserver:
+  #       jwt:
+  #         issuer-uri: http://localhost:8080

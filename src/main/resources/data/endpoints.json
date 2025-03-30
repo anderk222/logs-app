@@ -1,0 +1,9 @@
+[
+    {
+        "id": null,
+        "name":"get-projects-gitlab-graphql",
+        "description": "Obtener proyectos de gitlab usando graphql",
+        "path": "mutation |",
+        "type": "graphql"
+    }
+]

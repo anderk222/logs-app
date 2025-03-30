@@ -1,0 +1,124 @@
+[{
+    "id": null,
+    "codigo": "HTTP_METHOD",
+    "value": "POST",
+    "description": "http method"
+  }, {
+    "id": null,
+    "codigo": "HTTP_METHOD",
+    "value": "GET",
+    "description": "http method"
+  }, {
+    "id": null,
+    "codigo": "HTTP_METHOD",
+    "value": "PATCH",
+    "description": "http method"
+  }, {
+    "id": null,
+    "codigo": "HTTP_METHOD",
+    "value": "PUT",
+    "description": "http method"
+  },    {
+    "id": null,
+    "codigo": "HTTP_CODE",
+    "value": "100",
+    "description": "Continue"
+  },
+  {
+    "id": null,
+    "codigo": "HTTP_CODE",
+    "value": "101",
+    "description": "Switching Protocols"
+  },
+  {
+    "id": null,
+    "codigo": "HTTP_CODE",
+    "value": "200",
+    "description": "OK"
+  },
+  {
+    "id": null,
+    "codigo": "HTTP_CODE",
+    "value": "201",
+    "description": "Created"
+  },
+  {
+    "id": null,
+    "codigo": "HTTP_CODE",
+    "value": "202",
+    "description": "Accepted"
+  },
+  {
+    "id": null,
+    "codigo": "HTTP_CODE",
+    "value": "204",
+    "description": "No Content"
+  },
+  {
+    "id": null,
+    "codigo": "HTTP_CODE",
+    "value": "301",
+    "description": "Moved Permanently"
+  },
+  {
+    "id": null,
+    "codigo": "HTTP_CODE",
+    "value": "302",
+    "description": "Found"
+  },
+  {
+    "id": null,
+    "codigo": "HTTP_CODE",
+    "value": "304",
+    "description": "Not Modified"
+  },
+  {
+    "id": null,
+    "codigo": "HTTP_CODE",
+    "value": "400",
+    "description": "Bad Request"
+  },
+  {
+    "id": null,
+    "codigo": "HTTP_CODE",
+    "value": "401",
+    "description": "Unauthorized"
+  },
+  {
+    "id": null,
+    "codigo": "HTTP_CODE",
+    "value": "403",
+    "description": "Forbidden"
+  },
+  {
+    "id": null,
+    "codigo": "HTTP_CODE",
+    "value": "404",
+    "description": "Not Found"
+  },
+  {
+    "id": null,
+    "codigo": "HTTP_CODE",
+    "value": "500",
+    "description": "Internal Server Error"
+  },
+  {
+    "id": null,
+    "codigo": "HTTP_CODE",
+    "value": "502",
+    "description": "Bad Gateway"
+  },
+  {
+    "id": null,
+    "codigo": "HTTP_CODE",
+    "value": "503",
+    "description": "Service Unavailable"
+  },
+  {
+    "id": null,
+    "codigo": "HTTP_CODE",
+    "value": "504",
+    "description": "Gateway Timeout"
+  }
+]
+

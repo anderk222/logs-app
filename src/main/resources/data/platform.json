@@ -1,0 +1,14 @@
+[
+    {
+        "id": null,
+        "name": "GitLab",
+        "description": "Gitlab platform",
+        "status": true
+    },
+    {
+        "id": null,
+        "name": "Zoho",
+        "description": "Zoho platform",
+        "status": true
+    }
+]

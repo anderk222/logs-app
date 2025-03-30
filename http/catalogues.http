@@ -1,0 +1,13 @@
+POST http://localhost:8080/api/catalogues/search HTTP/1.1
+content-type: application/json
+
+  {
+    "id": null,
+    "codigo": "HTTP_METHOD",
+    "value": null,
+    "description": null
+  }
+
+###
+GET http://localhost:8080/api/catalogues HTTP/1.1
+content-type: application/json
